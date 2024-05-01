@@ -62,6 +62,7 @@ export const useRooms = (orderByUpdatedAt?: boolean) => {
     const currentUser = await fetchUser(firebaseUser.uid)
 
     const roomUsers = [currentUser].concat(users)
+    metadata =  Object.assign({}, metadata);
 
     const room = await firestore()
       .collection(ROOMS_COLLECTION_NAME)
@@ -119,6 +120,7 @@ export const useRooms = (orderByUpdatedAt?: boolean) => {
     const currentUser = await fetchUser(firebaseUser.uid)
 
     const users = [currentUser].concat(otherUser)
+    metadata =  Object.assign({}, metadata);
 
     const room = await firestore()
       .collection(ROOMS_COLLECTION_NAME)
